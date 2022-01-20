@@ -24,10 +24,18 @@ public class Produto {
 	private @NotNull String valor;
 	
 	@ManyToOne
-	@JoinColumn(name = "tb_usuario")
+	@JoinColumn(name = "usuario_id")
 	@JsonIgnoreProperties({"meusProdutos"})
-	private @NotNull Usuario usuario;
+	private Usuario usuario;
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Long getId() {
 		return id;
 	}
