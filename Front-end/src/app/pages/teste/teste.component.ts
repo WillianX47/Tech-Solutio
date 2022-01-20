@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/Model/Usuario';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-teste',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TesteComponent implements OnInit {
 
-  constructor() { }
+  usuario: Usuario = new Usuario();
 
-  ngOnInit(): void {
+  constructor(private auth: AuthService) { }
+
+  ngOnInit() {
+  }
+
+  cadastrar(){
+    this.auth.cadastrar(this.usuario).subscribe((resp: Usuario) => {
+      alert("Usuario cadastrado!")
+    })
   }
 
 }

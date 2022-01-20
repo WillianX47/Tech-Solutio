@@ -8,10 +8,12 @@
               >Email address</label
             >
             <input
+              name="email"
               type="email"
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              [(ngModel)]="usuario.usuario"
             />
             <div id="emailHelp" class="form-text">
               We'll never share your email with anyone else.
@@ -22,22 +24,24 @@
               >Password</label
             >
             <input
+              name="password"
               type="password"
               class="form-control"
               id="exampleInputPassword1"
+              [(ngModel)]="usuario.senha"
             />
           </div>
-          <div class="mb-3 form-check">
+          <div class="mb-3">
+            <label for="nome" class="form-label"> Nome </label>
             <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
+              name="nome"
+              type="text"
+              class="form-control"
+              id="nome"
+              [(ngModel)]="usuario.nome"
             />
-            <label class="form-check-label" for="exampleCheck1"
-              >Check me out</label
-            >
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" (click)="cadastrar()">Submit</button>
         </form>
       </div>
     </div>
