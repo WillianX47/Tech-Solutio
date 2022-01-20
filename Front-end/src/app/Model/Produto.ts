@@ -1,9 +1,9 @@
 import { Usuario } from "./Usuario";
 
 export class Produto {
-    public id: Number;
-    public nomeProduto: String;
-    public fornecedor: String;
-    public valor: String;
+    public id: number;
+    public nomeProduto: string;
+    public fornecedor: string;
+    public valor: string;
     public Usuario: Usuario;
 }

@@ -1,7 +1,7 @@
 export class UserLogin {
-    public id: Number;
-    public nome: String;
-    public senha: String;
-    public usuario: String;
-    public token: String;
+    public id: number;
+    public nome: string;
+    public senha: string;
+    public usuario: string;
+    public token: string;
 }
