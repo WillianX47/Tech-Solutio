@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { TesteComponent } from './pages/teste/teste.component';
 import { FormsModule } from '@angular/forms';
+import { ExplorarComponent } from './pages/explorar/explorar.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    TesteComponent
+    TesteComponent,
+    ExplorarComponent,
+    NavbarComponent
   ],
   imports: [
     FormsModule,
