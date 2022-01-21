@@ -21,14 +21,25 @@ export class ProdutoService {
     };
   }
 
+  getByFornecedor(fornecedor: string): Observable<Produto[]> {
+    return this.http.get<Produto[]>(
+      `http://localhost:8080/produto/fornecedor/${fornecedor}`,
+      this.token
+    );
+  }
+
   listarTodosProdutos(): Observable<Produto[]> {
-    return this.http.get<Produto[]>('http://localhost:8080/produto/all', this.token);
+    return this.http.get<Produto[]>(
+      'http://localhost:8080/produto/all',
+      this.token
+    );
   }
 
   adicionarProduto(produto: Produto): Observable<Produto> {
     return this.http.post<Produto>(
       'http://localhost:8080/produto/add',
-      produto, this.token
+      produto,
+      this.token
     );
   }
 }

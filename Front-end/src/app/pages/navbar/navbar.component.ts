@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { ExplorarComponent } from '../explorar/explorar.component';
 
 @Component({
   selector: 'app-navbar',
@@ -9,8 +10,9 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class NavbarComponent implements OnInit {
   nome: string = environment.nome
+  fornecedor: string = ''
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private explorar: ExplorarComponent) { }
 
   ngOnInit() {
   }

@@ -24,7 +24,9 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ExplorarComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

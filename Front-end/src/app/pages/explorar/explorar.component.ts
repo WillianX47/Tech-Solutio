@@ -14,6 +14,7 @@ export class ExplorarComponent implements OnInit {
   listaProduto: Produto[] = []
   produto: Produto = new Produto()
   usuario: Usuario = new Usuario()
+  fornecedor: string = ''
   id: number = environment.id
 
   constructor(private produtoService: ProdutoService, private router: Router) { }
@@ -25,6 +26,23 @@ export class ExplorarComponent implements OnInit {
     this.listarTodosProdutos()
   }
 
+  getByFornecedor(){
+    if(this.fornecedor == ''){
+      this.listarTodosProdutos()
+    } else {
+      this.produtoService.getByFornecedor(this.fornecedor).subscribe((resp: Produto[]) => {
+        this.listaProduto = resp
+        console.log(this.listaProduto)
+      })
+    }
+  }
+
+  listarTodosProdutos(){
+    this.produtoService.listarTodosProdutos().subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+    })
+  }
+
   adicionarProduto(){
     console.log(environment.id)
     this.usuario.id = environment.id
@@ -34,12 +52,6 @@ export class ExplorarComponent implements OnInit {
       this.listarTodosProdutos()
       this.produto = new Produto()
       alert("Produto adicionado!")
-    }))
-  }
-
-  listarTodosProdutos(){
-    this.produtoService.listarTodosProdutos().subscribe((resp => {
-      this.listaProduto = resp
     }))
   }
 
