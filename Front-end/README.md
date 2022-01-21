@@ -1,4 +1,4 @@
-# mandalorian-dev-test
+# Tech Solutio
 
 <p align="center">
   <em>
