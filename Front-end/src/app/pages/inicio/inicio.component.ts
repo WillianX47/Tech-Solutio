@@ -18,21 +18,31 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {}
 
-  cadastrar(){
+  cadastrar() {
     this.auth.cadastrar(this.usuario).subscribe((resp: Usuario) => {
-      this.usuario = new Usuario()
-      alert("Usuario cadastrado!")
-    })
+      this.usuario = new Usuario();
+      alert('Usuario cadastrado!');
+    }, (erro) => {
+        alert("Usuário já cadastrado no sistema, faça login!")
+      }
+    );
   }
 
   entrar() {
-    this.auth.entrar(this.userLogin).subscribe((resp => {
-      environment.id = resp.id
-      environment.token = resp.token
-      environment.usuario = resp.usuario
-      environment.nome = resp.nome
-      this.router.navigate(['/explorar']);
-      alert("Logado!")
-    }))
+    this.auth.entrar(this.userLogin).subscribe(
+      (resp: UserLogin) => {
+        console.log(resp);
+        environment.token = resp.token;
+        environment.usuario = resp.usuario;
+        environment.nome = resp.nome;
+        this.router.navigate(['/explorar']);
+        alert('Logado!');
+      },
+      (erro) => {
+        if (erro.status == 400) {
+          alert('Usuario ou senha invalidos');
+        }
+      }
+    );
   }
 }
