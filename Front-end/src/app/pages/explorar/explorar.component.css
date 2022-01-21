@@ -12,6 +12,10 @@ img{
     height: 20rem;
   }
 
+.price{
+    font-size: 25px;
+}
+
 .plus-button{
     font-size: 90px;
     color:  #E63946;   
