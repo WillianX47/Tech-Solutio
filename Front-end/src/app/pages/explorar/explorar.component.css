@@ -1,0 +1,18 @@
+.box {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    z-index: 1000;
+    left: 110rem;
+    top: 45rem;
+}
+
+img{
+    width:100rem;
+    height: 20rem;
+  }
+
+.plus-button{
+    font-size: 90px;
+    color:  #E63946;   
+}
