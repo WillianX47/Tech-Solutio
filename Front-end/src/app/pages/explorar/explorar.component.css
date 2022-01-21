@@ -7,10 +7,14 @@
     top: 45rem;
 }
 
-img{
+img {
     width:100rem;
     height: 20rem;
   }
+
+.bg-color{
+    background-color: #5B5A65;
+}
 
 .price{
     font-size: 25px;
@@ -19,4 +23,8 @@ img{
 .plus-button{
     font-size: 90px;
     color:  #E63946;   
+}
+
+.bt-color{
+    background-color: #E63946;
 }

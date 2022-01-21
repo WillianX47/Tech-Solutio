@@ -27,8 +27,8 @@ export class ProdutoService {
 
   adicionarProduto(produto: Produto): Observable<Produto> {
     return this.http.post<Produto>(
-      'https://localhost:8080/produto/add',
-      produto
+      'http://localhost:8080/produto/add',
+      produto, this.token
     );
   }
 }

@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 .cor-de-fundo {
-    background-color: #efeef5;
+  background: rgb(78, 74, 76);
+  background: radial-gradient(
+    circle,
+    rgba(78, 74, 76, 1) 0%,
+    rgba(7, 7, 8, 1) 94%
+  );
 }

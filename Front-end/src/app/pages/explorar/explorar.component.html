@@ -1,28 +1,93 @@
 <div class="container-fluid d-flex justify-content-around">
-  <div class="row mt-4 col-md-9 justify-content-between">
-      <div class="card col-3 mb-2" style="width: 18rem" *ngFor="let produto of listaProduto">
-        <img
-          src="{{produto.imagem}}"
-          class="card-img-top img-fluid img-thumbnail"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{produto.nomeProduto}}</h5>
-          <p class="card-text">
-            {{produto.fornecedor}}
-          </p>
-          <div class="d-flex justify-content-between">
-              <span class="price">R${{produto.valor}}</span>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-          
+  <div class="row mt-4 col-md-12 justify-content-center">
+    <div
+      class="card col-2 ml-2 mb-2"
+      style="width: 18rem"
+      *ngFor="let produto of listaProduto"
+    >
+      <img
+        src="{{ produto.imagem }}"
+        class="card-img-top img-fluid img-thumbnail"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ produto.nomeProduto }}</h5>
+        <p class="card-text">
+          {{ produto.fornecedor }}
+        </p>
+        <div class="d-flex justify-content-between">
+          <span class="price">R${{ produto.valor }}</span>
+          <a href="#" class="btn bt-color text-white">Comprar</a>
         </div>
       </div>
-    
+    </div>
   </div>
 </div>
 
 <!-- Botão de adicionar -->
 <div class="box">
-  <i class="fa fa-plus-circle plus-button" aria-hidden="true"></i>
+  <button class="btn" data-toggle="modal" data-target="#exampleModal">
+    <i class="fa fa-plus-circle plus-button" aria-hidden="true"></i>
+  </button>
+</div>
+
+<!-- Modal -->
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-color">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">
+          Anuncie um produto!
+        </h5>
+      </div>
+      <div class="modal-body">
+        <label for="nome" class="text-white mb-1">Nome do produto:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          name="nome"
+          [(ngModel)]="produto.nomeProduto"
+        />
+        <label for="nome" class="text-white mb-1">Fornecedor:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="fornecedor"
+          name="fornecedor"
+          [(ngModel)]="produto.fornecedor"
+        />
+        <label for="nome" class="text-white mb-1">Valor:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="valor"
+          name="valor"
+          [(ngModel)]="produto.valor"
+        />
+        <label for="nome" class="text-white mb-1">Link para imagem do produto:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="imagem"
+          name="imagem"
+          [(ngModel)]="produto.imagem"
+        />
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Fechar
+        </button>
+        <button type="button" class="btn bt-color text-white" (click)="adicionarProduto()">Anunciar</button>
+      </div>
+    </div>
+  </div>
 </div>
