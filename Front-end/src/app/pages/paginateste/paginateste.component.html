@@ -1,0 +1,43 @@
+<div class="container-fluid d-flex justify-content-center flex-column">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <form>
+        <div class="form-group">
+          <label for="nomeproduto" class="text-white">Nome do produto:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nomeproduto"
+            name="nomeproduto"
+            [(ngModel)]="produto.nomeProduto"
+          />
+        </div>
+        <div class="form-group">
+          <label for="fornecedor" class="text-white">Fornecedor:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fornecedor"
+            name="fornecedor"
+            [(ngModel)]="produto.fornecedor"
+          />
+        </div>
+        <div class="form-group">
+          <label for="valor" class="text-white">Valor</label>
+          <input type="text" class="form-control" id="valor" name="valor" [(ngModel)]="produto.valor" />
+        </div>
+        <button class="btn btn-danger" (click)="adicionarProduto()">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="card mt-3 col-2" style="width: 18rem;" *ngFor="let item of listaProduto">
+        <div class="card-body">
+          <h5 class="card-title">{{item.nomeProduto}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{item.fornecedor}}</h6>
+          <p class="card-text">R${{item.valor}}</p>
+          <button class="btn btn-danger">Deletar</button>
+        </div>
+      </div>
+  </div>
+</div>

@@ -33,10 +33,11 @@ export class TesteComponent implements OnInit {
     this.auth.entrar(this.userLogin).subscribe(
       (resp: UserLogin) => {
         console.log(resp);
+        environment.id = resp.id
         environment.token = resp.token;
         environment.usuario = resp.usuario;
         environment.nome = resp.nome;
-        this.router.navigate(['/explorar']);
+        this.router.navigate(['/paginateste']);
         alert('Logado!');
       },
       (erro) => {

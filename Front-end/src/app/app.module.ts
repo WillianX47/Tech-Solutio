@@ -9,6 +9,7 @@ import { TesteComponent } from './pages/teste/teste.component';
 import { FormsModule } from '@angular/forms';
 import { ExplorarComponent } from './pages/explorar/explorar.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
+import { PaginatesteComponent } from './pages/paginateste/paginateste.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,14 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
     InicioComponent,
     TesteComponent,
     ExplorarComponent,
-    NavbarComponent
+    NavbarComponent,
+    PaginatesteComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     ExplorarComponent
