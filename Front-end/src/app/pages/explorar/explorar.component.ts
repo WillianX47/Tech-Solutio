@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from 'src/app/Model/Produto';
+import { Usuario } from 'src/app/Model/Usuario';
 import { ProdutoService } from 'src/app/service/produto.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -12,6 +13,8 @@ import { environment } from 'src/environments/environment.prod';
 export class ExplorarComponent implements OnInit {
   listaProduto: Produto[] = []
   produto: Produto = new Produto()
+  usuario: Usuario = new Usuario()
+  id: number = environment.id
 
   constructor(private produtoService: ProdutoService, private router: Router) { }
 
@@ -23,6 +26,9 @@ export class ExplorarComponent implements OnInit {
   }
 
   adicionarProduto(){
+    console.log(environment.id)
+    this.usuario.id = environment.id
+    this.produto.usuario = this.usuario
     this.produtoService.adicionarProduto(this.produto).subscribe((resp => {
       this.produto = resp
       this.listarTodosProdutos()

@@ -34,6 +34,11 @@ public class ProdutoController {
 		return service.getAllProdutos();
 	}
 	
+	@GetMapping("/fornecedor/{fornecedor}")
+	public ResponseEntity<List<Produto>> getProdutoByFornecedor(@PathVariable String fornecedor){
+		return service.getProdutoByFornecedor(fornecedor);
+	}
+	
 	@PostMapping("/add")
 	public ResponseEntity<Produto> saveProduto(@RequestBody Produto produto){
 		return service.saveProduto(produto);

@@ -26,6 +26,15 @@ public class ProdutoService {
 		}
 	}
 
+	public ResponseEntity<List<Produto>> getProdutoByFornecedor(String fornecedor) {
+		List<Produto> listaProduto = repository.findAllByFornecedor(fornecedor);
+		if(listaProduto.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			return ResponseEntity.ok(listaProduto);
+		}
+	}
+
 	public ResponseEntity<Produto> getProdutoById(Long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.status(404).build());
 	}

@@ -27,6 +27,7 @@ export class InicioComponent implements OnInit {
 
   entrar() {
     this.auth.entrar(this.userLogin).subscribe((resp => {
+      environment.id = resp.id
       environment.token = resp.token
       environment.usuario = resp.usuario
       environment.nome = resp.nome
