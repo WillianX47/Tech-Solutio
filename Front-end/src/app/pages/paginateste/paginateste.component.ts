@@ -26,15 +26,13 @@ export class PaginatesteComponent implements OnInit {
     this.listarTodosProdutos()
   }
 
-  getByFornecedor(){
-    if(this.fornecedor == ''){
-      this.listarTodosProdutos()
-    } else {
-      this.produtoService.getByFornecedor(this.fornecedor).subscribe((resp: Produto[]) => {
-        this.listaProduto = resp
-        console.log(this.listaProduto)
-      })
-    }
+  logout(){
+    environment.id = 0;
+    environment.nome = '';
+    environment.senha = '';
+    environment.token = '';
+    environment.usuario = '';
+    this.router.navigate(['/inicio']);
   }
 
   listarTodosProdutos(){
