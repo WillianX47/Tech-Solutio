@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.lang.NonNull;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
@@ -23,11 +25,21 @@ public class Produto {
 	
 	private @NotNull String valor;
 	
+	private @NonNull String imagem;
+	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	@JsonIgnoreProperties({"meusProdutos"})
 	private Usuario usuario;
 	
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
