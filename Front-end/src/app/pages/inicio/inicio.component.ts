@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserLogin } from 'src/app/Model/UserLogin';
 import { Usuario } from 'src/app/Model/Usuario';
 import { AuthService } from 'src/app/service/auth.service';
@@ -13,7 +14,7 @@ export class InicioComponent implements OnInit {
   userLogin: UserLogin = new UserLogin();
   usuario: Usuario = new Usuario();
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -26,10 +27,10 @@ export class InicioComponent implements OnInit {
 
   entrar() {
     this.auth.entrar(this.userLogin).subscribe((resp => {
-      console.log(resp)
       environment.token = resp.token
       environment.usuario = resp.usuario
       environment.nome = resp.nome
+      this.router.navigate(['/explorar']);
       alert("Logado!")
     }))
   }
