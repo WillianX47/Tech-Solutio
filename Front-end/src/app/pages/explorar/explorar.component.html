@@ -1,27 +1,23 @@
 <div class="container-fluid d-flex justify-content-around">
-  <div class="row mt-4">
-    <div class="col-3">
-      <div class="card" style="width: 18rem">
+  <div class="row mt-4 col-md-9 justify-content-between">
+      <div class="card col-3 mb-2" style="width: 18rem" *ngFor="let produto of listaProduto">
         <img
-          src="https://images.unsplash.com/photo-1606171687198-55586a6cdf4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=446&q=80"
+          src="{{produto.imagem}}"
           class="card-img-top img-fluid img-thumbnail"
           alt="..."
-          max-width="5px"
         />
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">{{produto.nomeProduto}}</h5>
           <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {{produto.fornecedor}}
           </p>
           <div class="d-flex justify-content-between">
-              <span class="price">R$299,99</span>
+              <span class="price">R${{produto.valor}}</span>
               <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
           
         </div>
       </div>
-    </div>
     
   </div>
 </div>

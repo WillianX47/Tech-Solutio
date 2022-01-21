@@ -5,6 +5,6 @@ export class Produto {
     public nomeProduto: string;
     public fornecedor: string;
     public valor: string;
-    public foto: string;
+    public imagem: string;
     public Usuario: Usuario;
 }
