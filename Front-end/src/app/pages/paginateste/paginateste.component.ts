@@ -56,4 +56,11 @@ export class PaginatesteComponent implements OnInit {
     }))
   }
 
+  deleteProduto(id: number){
+    this.produtoService.deleteProduto(id).subscribe(() => {
+      this.listarTodosProdutos()
+      alert("Produto deletado")
+    })
+  }
+
 }
